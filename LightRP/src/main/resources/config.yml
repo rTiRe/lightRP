@@ -1,0 +1,10 @@
+# %displayName%   %name%   %message%
+me:
+  distance: "30"
+  format: "*%displayName% %message%"
+do:
+  distance: "30"
+  format: "*%message% %displayName%"
+n:
+  distance: "30"
+  format: "*%name%: %message%"

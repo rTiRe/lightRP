@@ -8,10 +8,8 @@ import org.bukkit.entity.Player;
 
 public class Commands implements CommandExecutor {
     private LightRP plugin;
-    private String cmd;
-    public Commands(LightRP plugin, String cmd) {
+    public Commands(LightRP plugin) {
         this.plugin = plugin;
-        this.cmd = cmd;
     }
 
     @Override
@@ -22,13 +20,12 @@ public class Commands implements CommandExecutor {
                 for (int i = 0; i < args.length; i++) sb.append(args[i]).append(" ");
                 if (sb.length() > 0) sb.deleteCharAt(sb.length() - 1);
                 String msg = sb.toString().trim();
-
-                String d = plugin.getConfig().getString(cmd + ".distance").trim();
+                String d = plugin.getConfig().getString(cmd.getName() + ".distance").trim();
                 if (d.length() == 0) {
                     d = "0";
                 }
                 float distance = Float.parseFloat(d);
-                String format = plugin.getConfig().getString(cmd + ".format").trim()
+                String format = plugin.getConfig().getString(cmd.getName() + ".format").trim()
                         .replace("&", "\u00a7")
                         .replace("%displayName%", ((Player) sender).getDisplayName())
                         .replace("%name%", ((Player) sender).getName())

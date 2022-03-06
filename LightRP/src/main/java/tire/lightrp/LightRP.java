@@ -29,9 +29,9 @@ public final class LightRP extends JavaPlugin {
             }
         }
 
-        getCommand("me").setExecutor(new Commands(this , "me"));
-        getCommand("do").setExecutor(new Commands(this , "do"));
-        getCommand("n").setExecutor(new Commands(this , "n"));
+        getCommand("me").setExecutor(new Commands(this));
+        getCommand("do").setExecutor(new Commands(this));
+        getCommand("n").setExecutor(new Commands(this));
 
     }
 

@@ -1,0 +1,18 @@
+name: LightRP
+version: '${project.version}'
+main: tire.lightrp.LightRP
+authors: [ TiRe ]
+description: Changing the format of RP commands.
+commands:
+  lrp:
+    description: setup command
+    usage: /lrp <reload>
+  me:
+    description: Me
+    usage: /me <message>
+  do:
+    description: Do
+    usage: /do <message>
+  n:
+    description: NRP chat
+    usage: /n <message>

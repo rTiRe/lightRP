@@ -9,7 +9,7 @@ public final class LightRP extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        File config = new File(getDataFolder() + File.separator + "src/main/resources/config.yml");
+        File config = new File(getDataFolder() + File.separator + "LightRP/config.yml");
         if(!config.exists()) {
             getConfig().options().copyDefaults(true);
             saveDefaultConfig();
@@ -25,18 +25,10 @@ public final class LightRP extends JavaPlugin {
             } catch(Exception e) {
                 getLogger().info(i + ".distance can only contain a number!");
             }
+            getCommand(i).setExecutor(new RPCommands(this));
         }
-
-        getCommand("me").setExecutor(new RPCommands(this));
-        getCommand("do").setExecutor(new RPCommands(this));
-        getCommand("n").setExecutor(new RPCommands(this));
 
         getCommand("lrp").setExecutor(new MainCommands(this));
 
-    }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
     }
 }

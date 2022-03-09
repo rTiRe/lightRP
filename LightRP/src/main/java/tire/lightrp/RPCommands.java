@@ -16,10 +16,12 @@ public class RPCommands implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if(args.length >= 1) {
             if (sender instanceof Player) {
+
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < args.length; i++) sb.append(args[i]).append(" ");
                 if (sb.length() > 0) sb.deleteCharAt(sb.length() - 1);
                 String msg = sb.toString().trim();
+
                 String d = plugin.getConfig().getString(cmd.getName() + ".distance").trim();
                 if (d.length() == 0) {
                     d = "0";
@@ -30,6 +32,7 @@ public class RPCommands implements CommandExecutor {
                         .replace("%displayName%", ((Player) sender).getDisplayName())
                         .replace("%name%", ((Player) sender).getName())
                         .replace("%message%", msg);
+
                 if (distance == 0) {
                     for (Player p : Bukkit.getOnlinePlayers()) {
                         p.sendMessage(format);
